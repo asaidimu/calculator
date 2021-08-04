@@ -43,6 +43,7 @@ button {
         border-radius: 16px;
         display: grid;
         grid-template-rows: 1fr 2fr;
+        box-shadow: 0 9px 36px rgba(0, 0, 0, 0.16);
     }
 
     .screen {
