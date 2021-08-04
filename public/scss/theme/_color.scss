@@ -1,0 +1,7 @@
+@function color($name) {
+    @return var(--theme-color-#{$name});
+}
+
+@function shadow($name) {
+    @return var(--theme-shadow-#{$name});
+}
