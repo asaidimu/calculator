@@ -34,7 +34,7 @@ const App = () => {
                 setExpression(result)
             }
         })
-    }, [engine])
+    }, [])
 
     return (
         <>
