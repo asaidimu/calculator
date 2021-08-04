@@ -2,7 +2,7 @@
 
 A web based calculator created with [ReactJs](https://reactjs.org/)
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/augustinesaidimu/calculator/build?style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/augustinesaidimu/calculator/Release?style=flat-square)
 
 ## Contributing
 
