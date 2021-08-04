@@ -43,12 +43,6 @@ const App = () => {
                 expression={expression}
                 result={result}
             />
-            <Calculator
-                engine={engine}
-                expression={expression}
-                result={result}
-                theme="light"
-            />
         </>
     )
 }
