@@ -1,7 +1,6 @@
 export const Engine = () => {
-    const math = {
-        evaluate: eval,
-    }
+    // eslint-disable-next-line
+    const math = { evaluate: eval }
 
     let [stack, expression] = [[], '']
 
