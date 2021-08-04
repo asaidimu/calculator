@@ -1,25 +1,19 @@
-FROM ubuntu:rolling
+FROM node:16.5.0 as build
 
 WORKDIR /app
 
+COPY ./package.json /app/package.json
+
+# buld app
+RUN npm install
+
 COPY . .
 
-COPY install.sh .
+RUN npm run build
 
-RUN apt-get update
-RUN yes | apt-get install wget curl -y
+# add files to server
+FROM nginx as server
+COPY ./.nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-RUN ./install.sh
-
-RUN rm -rf install.sh
-
-ENV PATH="/opt/dart-sass:${PATH}"
-
-RUN yarn
-
-RUN yarn build
-
-ENV PORT=3000
-EXPOSE 3000
-
-CMD ["yarn" "start"]
+# add server
+COPY --from=build app/build  /usr/share/nginx/html
