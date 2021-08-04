@@ -1,0 +1,134 @@
+@use "theme" as *;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+body {
+    background: color('body-background');
+    color: color('on-background');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    @include font-size('body');
+}
+
+button {
+    outline: 0;
+    border: 0;
+    color: inherit;
+}
+
+.root {
+    display: flex;
+}
+
+.calculator {
+    padding: 0 16px;
+    @include teko-font;
+
+    .container {
+        width: 280px;
+        background-color: color('background');
+        height: 100%;
+        border-radius: 16px;
+        display: grid;
+        grid-template-rows: 1fr 2fr;
+    }
+
+    .screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 16px;
+
+        &-primary {
+            color: color('on-background-alt');
+            @include font-size('h5');
+        }
+
+        &-secondary {
+            color: color('on-background');
+            @include font-size('h3');
+        }
+    }
+
+    .control {
+        padding: 16px;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+
+        color: color('on-surface');
+        background-color: color('surface');
+    }
+
+    .grid {
+        flex-grow: 1;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        padding: 16px 0;
+    }
+
+    button {
+        min-width: 54px;
+        height: 54px;
+
+        border-radius: 10px;
+        background-color: color('surface');
+        box-shadow: shadow('button');
+        @include font-size('h5');
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            background-color: color('surface-alt');
+        }
+    }
+
+    .extend {
+        grid-column: 1/3;
+    }
+
+    .bottom-bar {
+        flex-grow: 0;
+        display: flex;
+        width: 100%;
+        height: 8px;
+        justify-content: center;
+        align-items: center;
+
+        &::before {
+            content: '';
+            display: block;
+            height: 4px;
+            border-radius: 4px;
+            width: 50%;
+
+            background-color: color('on-background');
+        }
+    }
+}
+
+.pink-text {
+    color: color('pink');
+    &:hover {
+        background-color: color('highlight-pink');
+    }
+}
+
+.blue-text {
+    color: color('blue');
+}

@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
+
+$font-sizes: (
+    'h1': 6rem,
+    'h2': 3.75rem,
+    'h3': 3rem,
+    'h4': 2.125rem,
+    'h5': 1.5rem,
+    'h6': 1.25rem,
+    'body': 1rem,
+    'body-alt': 0.875rem,
+    'subtitle1': 1rem,
+    'subtitle2': 0.875rem,
+    'button': 0.875rem,
+    'overline': 0.625rem,
+    'caption': 0.75rem,
+);
+
+@mixin font-size($name) {
+    font-size: map-get($font-sizes, $name);
+}
+
+@mixin teko-font() {
+    font-family: 'Teko', sans-serif;
+}
+
+@mixin material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Preferred icon size */
+    display: inline-block;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.material-icons {
+    @include material-icons;
+}
