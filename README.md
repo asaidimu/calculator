@@ -4,6 +4,10 @@ A web based calculator created with [ReactJs](https://reactjs.org/)
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/augustinesaidimu/calculator/build?style=flat-square)
 
+## ScreenShot
+
+![ScreenShot]()
+
 ## Contributing
 
 Pull requests are welcome.\
