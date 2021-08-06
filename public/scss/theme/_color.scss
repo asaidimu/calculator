@@ -1,7 +1,21 @@
-@function color($name) {
-    @return var(--theme-color-#{$name});
-}
-
-@function shadow($name) {
-    @return var(--theme-shadow-#{$name});
-}
+$color: (
+    'base': (
+        'primary'       :#29badd,
+        'secondary'     :#f10159,
+        'on-background-alt': #92959d,
+    ),
+    'light' : (
+        'background'    :#ffffff,
+        'on-background' :#010101,
+        'surface'       :#f6f6f6,
+        'on-surface'    :#000000,
+        'accent'        :#45c2e014,
+    ),
+    'dark': (
+        'background'    :#12151d,
+        'on-background' :#ffffff,
+        'surface'       :#22252d,
+        'on-surface'    :#fcffff,
+        'accent'        :#282b33,
+    ),
+);

@@ -1,0 +1,115 @@
+@use "abstracts" as *;
+
+.calculator {
+
+    & {
+        @include theme-font;
+        display: grid;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    &__screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 16px;
+
+        &__primary {
+            width: calc(100vw - 32px);
+            overflow-x: auto;
+            overflow-y: hidden;
+            display: block;
+            text-align: right;
+            color: color('on-background');
+            @include font-size('h3');
+            @include scrollbar;
+        }
+
+        &__secondary {
+            color: color('on-background-alt');
+            @include font-size('h5');
+        }
+    }
+
+    &__controls {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+
+        gap: 8px;
+        padding: 16px;
+
+        border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
+
+        color: color('on-surface');
+        background-color: color('surface');
+
+        &__button {
+            border-radius: 10px;
+            background-color: color('surface');
+            box-shadow: 2px 2px 4px #dddddd, -2px -2px 8px rgb(252 238 238);
+
+            @include font-size('h5');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &--is-primary {
+                color: color('primary');
+            }
+
+            &--is-secondary {
+                color: color('secondary');
+            }
+
+            &--is-extended {
+                grid-column: 1/3;
+            }
+
+            &:hover {
+                background-color: color('accent');
+            }
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .calculator__controls__button {
+        box-shadow: 1px 1px 2px 0 #191d25, -1px -1px 2px #282d3c;
+    }
+}
+
+@media screen and (min-width: 413px) {
+
+    body {
+        background-color: color('secondary');
+    }
+
+    .calculator {
+        $width: 321px;
+
+        & {
+            max-width: $width;
+            height: calc(100vh - 32px);
+            margin: auto;
+            margin-top: 16px;
+            margin-bottom: 16px;
+            border-radius: 18px;
+            background-color: color('background');
+        }
+
+        &__screen {
+
+            &__primary {
+                width: calc(#{$width} - 32px);
+            }
+        }
+
+        &__controls {
+            border-radius: 18px;
+        }
+    }
+}
