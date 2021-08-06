@@ -1,0 +1,37 @@
+@use "variables" as *;
+
+@mixin font-size($size) {
+    font-size: map-get($font-sizes, $size);
+}
+
+@mixin font-size-height($size) {
+    height: map-get($font-sizes, $size);
+}
+
+@mixin theme-font() {
+    font-family: map-get($theme, 'font');
+}
+
+@function color($name) {
+    @return var(--theme-color-#{$name});
+}
+
+@mixin css-vars($scope, $variant){
+    $vars: map-get($theme, $scope);
+    @each $key, $value in map-get($vars, $variant) {
+        --theme-#{$scope}-#{$key}: #{$value};
+    }
+}
+
+@mixin scrollbar() {
+
+    &::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: color('primary');
+        border-radius: 2px;
+        outline: 0;
+    }
+}

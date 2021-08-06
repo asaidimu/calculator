@@ -1,50 +1,49 @@
 export const Screen = ({ name, value }) => {
-    const styles = `screen-${name}`
+    const styles = `calculator__screen__${name}`
     return <span className={styles}>{value}</span>
 }
 
-export const Button = ({ value, onClick, styles }) => (
-    <button className={styles} onClick={onClick}>
-        {value}
-    </button>
-)
+export const Button = ({ value, onClick, isPrimary=false, isSecondary=false, isExtended=false}) => {
+    let styles = 'calculator__controls__button'
 
-export const IconButton = ({ value, onClick, styles }) => (
-    <button className={styles} onClick={onClick}>
-        <i className="material-icons"> {value} </i>
-    </button>
-)
+    if(isExtended)
+        styles = `${styles} calculator__controls__button--is-extended`
 
-export const BottomBar = () => <span className="bottom-bar"></span>
+    if(isPrimary) {
+        styles = `${styles} calculator__controls__button--is-primary`
+    } else if(isSecondary) {
+        styles = `${styles} calculator__controls__button--is-secondary`
+    }
 
-export const Calculator = ({ engine, expression, result, theme = 'dark' }) => {
-    const styles = `calculator theme-${theme}`
+    return ( <button className={ styles } onClick={onClick}> {value} </button>)
+}
+
+export const Calculator = ({ engine, expression, result }) => {
     return (
-        <div className={styles}>
-            <div className="container">
-                <div className="screen">
-                    <Screen name="secondary" value={expression} />
-                    <Screen name="primary" value={result} />
+        <div className="calculator">
+                <div className="calculator__screen">
+                    <Screen name="primary" value={expression} />
+                    <Screen name="secondary" value={result} />
                 </div>
-                <div className="control">
-                    <div className="grid">
+                <div className="calculator__controls">
                         <Button
                             onClick={() => engine.clear()}
-                            styles="blue-text"
+                            isPrimary= {true}
                             value="AC"
                         />
                         <Button
                             onClick={() => engine.delete()}
-                            styles="blue-text"
+                            isPrimary= {true}
                             value="DEL"
                         />
                         <Button
                             onClick={() => engine.append('%')}
-                            styles="blue-text"
+                            isPrimary= {true}
                             value=" % "
                         />
                         <Button
                             onClick={() => engine.append('/')}
+                            isSecondary= {true}
                             styles="pink-text"
                             value=" / "
                         />
@@ -53,15 +52,15 @@ export const Calculator = ({ engine, expression, result, theme = 'dark' }) => {
                         <Button onClick={() => engine.append('9')} value="9" />
                         <Button
                             onClick={() => engine.append(' * ')}
-                            styles="pink-text"
-                            value="x"
+                            isSecondary= {true}
+                            value="*"
                         />
                         <Button onClick={() => engine.append('4')} value="4" />
                         <Button onClick={() => engine.append('5')} value="5" />
                         <Button onClick={() => engine.append('6')} value="6" />
                         <Button
                             onClick={() => engine.append(' - ')}
-                            styles="pink-text"
+                            isSecondary= {true}
                             value="-"
                         />
                         <Button onClick={() => engine.append('1')} value="1" />
@@ -69,24 +68,21 @@ export const Calculator = ({ engine, expression, result, theme = 'dark' }) => {
                         <Button onClick={() => engine.append('3')} value="3" />
                         <Button
                             onClick={() => engine.append(' + ')}
-                            styles="pink-text"
+                            isSecondary= {true}
                             value="+"
                         />
                         <Button
                             onClick={() => engine.append('0')}
-                            styles="extend"
+                            isExtended = { true }
                             value="0"
                         />
                         <Button onClick={() => engine.append('.')} value="." />
                         <Button
                             onClick={() => engine.evaluate()}
-                            styles="pink-text"
+                            isSecondary= {true}
                             value="="
                         />
-                    </div>
-                    <BottomBar />
                 </div>
-            </div>
         </div>
     )
 }

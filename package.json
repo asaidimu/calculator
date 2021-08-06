@@ -36,7 +36,8 @@
     },
     "release": {
         "branches": [
-            "main"
+            "main",
+            "deploy"
         ],
         "plugins": [
             "@semantic-release/commit-analyzer",

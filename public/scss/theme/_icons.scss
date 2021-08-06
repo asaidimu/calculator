@@ -1,30 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
-
-$font-sizes: (
-    'h1': 6rem,
-    'h2': 3.75rem,
-    'h3': 3rem,
-    'h4': 2.125rem,
-    'h5': 1.5rem,
-    'h6': 1.25rem,
-    'body': 1rem,
-    'body-alt': 0.875rem,
-    'subtitle1': 1rem,
-    'subtitle2': 0.875rem,
-    'button': 0.875rem,
-    'overline': 0.625rem,
-    'caption': 0.75rem,
-);
-
-@mixin font-size($name) {
-    font-size: map-get($font-sizes, $name);
-}
-
-@mixin teko-font() {
-    font-family: 'Teko', sans-serif;
-}
-
-@mixin material-icons {
+@mixin icon {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -48,6 +22,6 @@ $font-sizes: (
     font-feature-settings: 'liga';
 }
 
-.material-icons {
-    @include material-icons;
+.icon {
+    @include icon;
 }

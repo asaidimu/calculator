@@ -1,0 +1,18 @@
+@use "abstracts" as *;
+@use "helpers" as *;
+
+#root {
+    @extend .is-fullscreen;
+    overflow: hidden;
+}
+
+:root {
+    @include css-vars("color", 'base');
+    @include css-vars("color", 'light');
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include css-vars("color", 'dark');
+    }
+}

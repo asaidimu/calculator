@@ -1,5 +1,14 @@
-@use "vendor" as vendor;
-@use "base" as base;
-@use "component" as components;
-@use "theme" as theme;
-@use "layout/base" as layout;
+/* vendor files */
+@use "vendor";
+
+/* abstracts */
+@use "abstracts";
+
+/* base files */
+@use "base";
+
+/* components */
+@use "components";
+
+/* layout */
+@use "layout";

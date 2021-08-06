@@ -1,0 +1,69 @@
+@use "abstracts" as *;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+body {
+    overflow-x: hidden;
+    min-height: 100vh;
+
+    background-color: color('background');
+    color: color('foreground');
+
+    * {
+        color: inherit;
+    }
+}
+
+ul, li {
+    list-style: none;
+}
+
+li {
+    display: block;
+}
+
+ol {
+
+    li {
+        display: list-item;
+    }
+
+    li::marker {
+        text-align: left;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    outline: 0;
+    border: 0;
+}
+
+p {
+    display: block;
+}
+
+input {
+    outline: 0;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
+    }
+}

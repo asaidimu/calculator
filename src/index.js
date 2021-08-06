@@ -36,14 +36,11 @@ const App = () => {
         })
     }, [])
 
-    return (
-        <>
-            <Calculator
+    return ( <Calculator
                 engine={engine}
                 expression={expression}
                 result={result}
             />
-        </>
     )
 }
 
