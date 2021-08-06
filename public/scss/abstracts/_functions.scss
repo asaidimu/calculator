@@ -4,6 +4,10 @@
     font-size: map-get($font-sizes, $size);
 }
 
+@mixin font-size-height($size) {
+    height: map-get($font-sizes, $size);
+}
+
 @mixin theme-font() {
     font-family: map-get($theme, 'font');
 }
