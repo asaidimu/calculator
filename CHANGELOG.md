@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/augustinesaidimu/calculator/compare/v1.0.0...v1.1.0) (2021-08-06)
+
+
+### Features
+
+* refactored styles to use BEM ([cced062](https://github.com/augustinesaidimu/calculator/commit/cced0626e660dfe97337788e4d178be6a06afd46))
+
 # 1.0.0 (2021-08-04)
 
 
