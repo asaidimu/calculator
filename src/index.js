@@ -1,31 +1,31 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import { CalculatorUi } from './Ui'
 import { Calculator } from './Calculator'
-import { Engine } from './Engine'
 
 import { useState, useEffect } from 'react'
 
-const engine = Engine()
+const calc = Calculator()
 
 const App = () => {
     const [expression, setExpression] = useState('')
     const [result, setResult] = useState(0)
 
     useEffect(() => {
-        engine.on('append', ({ expression }) => {
+        calc.on('append', ({ expression }) => {
             setExpression(expression)
             setResult(0)
         })
 
-        engine.on('delete', ({ expression }) => setExpression(expression))
+        calc.on('delete', ({ expression }) => setExpression(expression))
 
-        engine.on('clear', () => {
+        calc.on('clear', () => {
             setExpression('')
             setResult(0)
         })
 
-        engine.on('evaluate', ({ expression, result, error }) => {
+        calc.on('evaluate', ({ expression, result, error }) => {
             setResult(expression)
 
             if (error) {
@@ -36,8 +36,8 @@ const App = () => {
         })
     }, [])
 
-    return ( <Calculator
-                engine={engine}
+    return ( <CalculatorUi
+                calc={calc}
                 expression={expression}
                 result={result}
             />

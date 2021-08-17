@@ -19,7 +19,7 @@ COPY ./.nginx/nginx.conf /etc/nginx/conf.d/default.conf
 # add server
 COPY --from=build app/build  /usr/share/nginx/html
 
-# expos port
+# expose port
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 

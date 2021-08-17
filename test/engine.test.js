@@ -1,92 +1,92 @@
 import { assert } from 'chai'
-import { Engine } from '../src/Engine.js'
+import { Calculator } from '../src/Calculator.js'
 
-describe('Calculator Engine', function () {
+describe('Calculator', function () {
     it('append() should append to expression', function () {
-        const [engine, value] = [Engine(), 1]
+        const [calc, value] = [Calculator(), 1]
 
-        engine.append(value)
+        calc.append(value)
 
-        assert.equal(engine.expression, value)
+        assert.equal(calc.expression, value)
     })
 
     it('append() should emit an append event', function (done) {
-        const [engine, value] = [Engine(), 1]
+        const [calc, value] = [Calculator(), 1]
 
-        engine.on('append', ({ expression }) => {
+        calc.on('append', ({ expression }) => {
             assert.equal(expression, value)
             done()
         })
 
-        engine.append(value)
+        calc.append(value)
     })
 
     it('delete() should delete from expression', function () {
-        const [engine, value1, value2] = [Engine(), 123, 456]
+        const [calc, value1, value2] = [Calculator(), 123, 456]
 
-        engine.append(value1)
-        engine.append(value2)
-        engine.delete()
-        assert.equal(engine.expression, value1)
+        calc.append(value1)
+        calc.append(value2)
+        calc.delete()
+        assert.equal(calc.expression, value1)
     })
 
     it('delete() should emit a delete event', function (done) {
-        const [engine, value] = [Engine(), 1]
+        const [calc, value] = [Calculator(), 1]
 
-        engine.on('delete', ({ expression }) => {
+        calc.on('delete', ({ expression }) => {
             assert.equal(expression, '')
             done()
         })
 
-        engine.append(value)
-        engine.delete()
+        calc.append(value)
+        calc.delete()
     })
 
     it('clear() should clear the expression', function () {
-        const [engine, value] = [Engine(), 123]
+        const [calc, value] = [Calculator(), 123]
 
-        engine.append(value)
-        engine.clear()
-        assert.equal(engine.expression, '')
+        calc.append(value)
+        calc.clear()
+        assert.equal(calc.expression, '')
     })
 
     it('clear() should emit a clear event', function (done) {
-        const [engine, value] = [Engine(), 1]
+        const [calc, value] = [Calculator(), 1]
 
-        engine.on('clear', ({ expression }) => {
+        calc.on('clear', ({ expression }) => {
             assert.equal(expression, '')
             done()
         })
 
-        engine.append(value)
-        engine.clear()
+        calc.append(value)
+        calc.clear()
     })
 
     it('evaluate() should emit an evaluate event', function (done) {
-        const [engine, value] = [Engine(), 0]
+        const [calc, value] = [Calculator(), 0]
 
-        engine.append(value)
+        calc.append(value)
 
-        engine.on('evaluate', ({ result }) => {
+        calc.on('evaluate', ({ result }) => {
             assert.equal(result, value)
             done()
         })
 
-        engine.evaluate()
+        calc.evaluate()
     })
 
     it('evaluate() should evaluate the expression', function (done) {
-        const [engine, value1, value2] = [Engine(), 123, 456]
+        const [calc, value1, value2] = [Calculator(), 123, 456]
 
-        engine.append(value1)
-        engine.append(' + ')
-        engine.append(value2)
+        calc.append(value1)
+        calc.append(' + ')
+        calc.append(value2)
 
-        engine.on('evaluate', ({ result }) => {
+        calc.on('evaluate', ({ result }) => {
             assert.equal(result, 123 + 456)
             done()
         })
 
-        engine.evaluate()
+        calc.evaluate()
     })
 })
