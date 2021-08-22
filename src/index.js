@@ -36,12 +36,7 @@ const App = () => {
         })
     }, [])
 
-    return ( <CalculatorUi
-                calc={calc}
-                expression={expression}
-                result={result}
-            />
-    )
+    return <CalculatorUi calc={calc} expression={expression} result={result} />
 }
 
 ReactDOM.render(

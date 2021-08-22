@@ -16,7 +16,7 @@
     @return var(--theme-color-#{$name});
 }
 
-@mixin css-vars($scope, $variant){
+@mixin css-vars($scope, $variant) {
     $vars: map-get($theme, $scope);
     @each $key, $value in map-get($vars, $variant) {
         --theme-#{$scope}-#{$key}: #{$value};
@@ -24,7 +24,6 @@
 }
 
 @mixin scrollbar() {
-
     &::-webkit-scrollbar {
         height: 4px;
     }

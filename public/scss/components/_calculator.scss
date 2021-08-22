@@ -1,7 +1,6 @@
 @use "abstracts" as *;
 
 .calculator {
-
     & {
         @include theme-font;
         display: grid;
@@ -97,7 +96,6 @@
 }
 
 @media screen and (min-width: 413px) {
-
     body {
         background-color: color('secondary');
     }
@@ -116,8 +114,8 @@
         }
 
         &__screen {
-
-            &__primary, &__secondary {
+            &__primary,
+            &__secondary {
                 width: calc(#{$width} - 32px);
             }
         }

@@ -34,7 +34,6 @@ export const Calculator = () => {
         emit('delete', expression)
     }
 
-
     const evaluate = () => {
         if (String(expression).length === 0) expression = 0
 
