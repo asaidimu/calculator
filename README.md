@@ -5,7 +5,6 @@ Based on
 [Design](https://dribbble.com/shots/15066200-Calculator-App?utm_source=Clipboard_Shot&utm_campaign=mbolsoni&utm_content=Calculator%20App&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=mbolsoni&utm_content=Calculator%20App&utm_medium=Social_Share)
 by [Mateus Bolsoni](https://dribbble.com/mbolsoni).
 
-Running live [here](https://calculator-1738.web.app)
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/augustinesaidimu/calculator/Release?style=flat-square)
 
